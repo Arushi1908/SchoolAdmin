@@ -5,19 +5,17 @@ import styled from 'styled-components';
 import Students from "../assets/students.svg";
 import { LightPurpleButton } from '../components/buttonStyles';
 
+
 const Homepage = () => {
     return (
-        <StyledContainer>
-            <Grid container spacing={0}>
-                <Grid item xs={12} md={6}>
-                    <img src={Students} alt="students" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item xs={12} md={6}>
+        <StyledContainer sx={{ width:'100%'}}>
+            <Grid container spacing={0} sx={{ width: '100%', margin: 0 }}>
+                <Grid item xs={12} md={6} >
                     <StyledPaper elevation={3}>
                         <StyledTitle>
                             Welcome to
                             <br />
-                            School Management
+                            School Admin
                             <br />
                             System
                         </StyledTitle>
@@ -28,25 +26,28 @@ const Homepage = () => {
                         </StyledText>
                         <StyledBox>
                             <StyledLink to="/choose">
-                                <LightPurpleButton variant="contained" fullWidth>
+                                <Button variant="contained" fullWidth sx={{color:' #273287', bgcolor:' #dbebae', '&:hover': {bgcolor: ' transparent', border: '1px solid #1976d2', color:' #dbebae'}}}>
                                     Login
-                                </LightPurpleButton>
+                                </Button>
                             </StyledLink>
                             <StyledLink to="/chooseasguest">
                                 <Button variant="outlined" fullWidth
-                                    sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
+                                    sx={{ mt: 2, mb: 3, color: " #dbebae", borderColor: " #dbebae" }}
                                 >
                                     Login as Guest
                                 </Button>
                             </StyledLink>
                             <StyledText>
                                 Don't have an account?{' '}
-                                <Link to="/Adminregister" style={{color:"#550080"}}>
+                                <Link to="/Adminregister" style={{color:" #dbebae"}}>
                                     Sign up
                                 </Link>
                             </StyledText>
                         </StyledBox>
                     </StyledPaper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <img src={Students} alt="students" style={{ width: '100%' }} />
                 </Grid>
             </Grid>
         </StyledContainer>
@@ -55,12 +56,12 @@ const Homepage = () => {
 
 export default Homepage;
 
-const StyledContainer = styled(Container)`
+const StyledContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: black ;
+  padding: 10px 30px;
 `;
+
 
 const StyledPaper = styled.div`
   padding: 24px;
@@ -78,7 +79,7 @@ const StyledBox = styled(Box)`
 
 const StyledTitle = styled.h1`
   font-size: 3rem;
-  color: #252525;
+  color: #dbebae;
   /* font-family: "Manrope"; */
   font-weight: bold;
   padding-top: 0;
@@ -88,6 +89,7 @@ const StyledTitle = styled.h1`
 
 const StyledText = styled.p`
   /* color: #550080; */
+  color: #b7f19e ;
   margin-top: 30px;
   margin-bottom: 30px; 
   letter-spacing: normal;
@@ -96,4 +98,6 @@ const StyledText = styled.p`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  
 `;
+

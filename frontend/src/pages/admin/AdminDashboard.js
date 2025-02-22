@@ -52,11 +52,11 @@ const AdminDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar open={open} position='absolute'>
+                <AppBar open={open} position='absolute' sx={{bgcolor:'#17184B'}}>
                     <Toolbar sx={{ pr: '24px' }}>
                         <IconButton
                             edge="start"
-                            color="inherit"
+                            color='inherit'
                             aria-label="open drawer"
                             onClick={toggleDrawer}
                             sx={{
@@ -71,7 +71,7 @@ const AdminDashboard = () => {
                             variant="h6"
                             color="inherit"
                             noWrap
-                            sx={{ flexGrow: 1 }}
+                            sx={{ flexGrow: 1}}
                         >
                             Admin Dashboard
                         </Typography>
@@ -146,10 +146,7 @@ export default AdminDashboard
 
 const styles = {
     boxStyled: {
-        backgroundColor: (theme) =>
-            theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+        bgcolor:'#D3DDE7',
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',

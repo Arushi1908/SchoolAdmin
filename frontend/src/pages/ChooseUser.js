@@ -8,7 +8,7 @@ import {
   CircularProgress,
   Backdrop,
 } from '@mui/material';
-import { AccountCircle, School, Group } from '@mui/icons-material';
+import { AccountCircle, School, Group, Padding } from '@mui/icons-material';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
@@ -84,15 +84,19 @@ const ChooseUser = ({ visitor }) => {
 
   return (
     <StyledContainer>
-      <Container>
-        <Grid container spacing={2} justifyContent="center">
-          <Grid item xs={12} sm={6} md={4}>
+      <Container sx={{
+        width: '100%',
+        boxSizing: 'border-box',
+        display: 'block',
+    }}>
+        <Grid container spacing={3} justifyContent="center" sx={{margin:'auto'}}>
+          <Grid item xs={12} sm={6} md={4} >
             <div onClick={() => navigateHandler("Admin")}>
-              <StyledPaper elevation={3}>
+              <StyledPaper elevation={3} sx={{bgcolor:' #dbebae'}}>
                 <Box mb={2}>
                   <AccountCircle fontSize="large" />
                 </Box>
-                <StyledTypography>
+                <StyledTypography sx={{color:' #013036', '&:hover' : {color:' #dbebae'}}}>
                   Admin
                 </StyledTypography>
                 Login as an administrator to access the dashboard to manage app data.
@@ -100,7 +104,7 @@ const ChooseUser = ({ visitor }) => {
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #dbebae'}}>
               <div onClick={() => navigateHandler("Student")}>
                 <Box mb={2}>
                   <School fontSize="large" />
@@ -113,7 +117,7 @@ const ChooseUser = ({ visitor }) => {
             </StyledPaper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #dbebae'}}>
               <div onClick={() => navigateHandler("Teacher")}>
                 <Box mb={2}>
                   <Group fontSize="large" />
@@ -142,26 +146,31 @@ const ChooseUser = ({ visitor }) => {
 export default ChooseUser;
 
 const StyledContainer = styled.div`
-  background: linear-gradient(to bottom, #411d70, #19118b);
-  height: 120vh;
+  // background: linear-gradient(to bottom, #411d70, #19118b);
+  background: black;
+  height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
+  
 `;
 
 const StyledPaper = styled(Paper)`
   padding: 20px;
   text-align: center;
-  background-color: #1f1f38;
-  color:rgba(255, 255, 255, 0.6);
+  color: #17184B;
   cursor:pointer;
+  height: 40vh;
+  width: 15vw;
+  border-radius: 15px !important;
 
   &:hover {
-    background-color: #2c2c6c;
-    color:white;
+    background-color: #013036;
+    color: #dbebae;
   }
 `;
 
 const StyledTypography = styled.h2`
   margin-bottom: 10px;
+
 `;
