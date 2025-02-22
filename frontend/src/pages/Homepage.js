@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Box, Button } from '@mui/material';
 import styled from 'styled-components';
-import Students from "../assets/students.svg";
+import Students from "../assets/Artboard1.png";
 import { LightPurpleButton } from '../components/buttonStyles';
 
 
 const Homepage = () => {
     return (
-        <StyledContainer sx={{ width:'100%'}}>
-            <Grid container spacing={0} sx={{ width: '100%', margin: 0 }}>
-                <Grid item xs={12} md={6} >
+        <StyledContainer  sx={{ width:'100%'}}>
+            <Grid container  spacing={2} sx={{ margin: 0 }}>
+                <Grid item xs={12} md={6}  >
                     <StyledPaper elevation={3}>
                         <StyledTitle>
-                            Welcome to
+                            <span style={{paddingLeft:'20%'}}> Welcome to </span>
                             <br />
                             School Admin
-                            <br />
+                            
                             System
                         </StyledTitle>
                         <StyledText>
@@ -26,18 +26,18 @@ const Homepage = () => {
                         </StyledText>
                         <StyledBox>
                             <StyledLink to="/choose">
-                                <Button variant="contained" fullWidth sx={{color:' #273287', bgcolor:' #dbebae', '&:hover': {bgcolor: ' transparent', border: '1px solid #1976d2', color:' #dbebae'}}}>
+                                <Button variant="contained" fullWidth style={{marginTop:'30%'}} sx={{color:' #273287', bgcolor:' #dbebae', '&:hover': {bgcolor: ' transparent', border: '1px solid #1976d2', color:' #dbebae'}}}>
                                     Login
                                 </Button>
                             </StyledLink>
                             <StyledLink to="/chooseasguest">
-                                <Button variant="outlined" fullWidth
+                                <Button variant="outlined" fullWidth style={{marginTop:'10%'}}
                                     sx={{ mt: 2, mb: 3, color: " #dbebae", borderColor: " #dbebae" }}
                                 >
                                     Login as Guest
                                 </Button>
                             </StyledLink>
-                            <StyledText>
+                            <StyledText style={{paddingTop: '1%', paddingRight:'5%'}}>
                                 Don't have an account?{' '}
                                 <Link to="/Adminregister" style={{color:" #dbebae"}}>
                                     Sign up
@@ -46,7 +46,8 @@ const Homepage = () => {
                         </StyledBox>
                     </StyledPaper>
                 </Grid>
-                <Grid item xs={12} md={6}>
+
+                <Grid item xs={12} md={6} >
                     <img src={Students} alt="students" style={{ width: '100%' }} />
                 </Grid>
             </Grid>
@@ -58,8 +59,11 @@ export default Homepage;
 
 const StyledContainer = styled.div`
   display: flex;
-  background-color: black ;
+  background-color: #093968 ;
   padding: 10px 30px;
+  flexDirection: 'column';
+  align-items: center;
+   justify-content: center;
 `;
 
 
@@ -83,17 +87,20 @@ const StyledTitle = styled.h1`
   /* font-family: "Manrope"; */
   font-weight: bold;
   padding-top: 0;
+  padding-left: 4%;
   letter-spacing: normal;
   line-height: normal;
 `;
 
 const StyledText = styled.p`
   /* color: #550080; */
-  color: #b7f19e ;
+  color: #D6B4FC ;
   margin-top: 30px;
   margin-bottom: 30px; 
   letter-spacing: normal;
   line-height: normal;
+  text-align: center;
+
 `;
 
 const StyledLink = styled(Link)`

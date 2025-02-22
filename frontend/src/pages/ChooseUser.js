@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
+import bgimg from '../assets/classroom.png'
 
 const ChooseUser = ({ visitor }) => {
   const dispatch = useDispatch()
@@ -92,7 +93,7 @@ const ChooseUser = ({ visitor }) => {
         <Grid container spacing={3} justifyContent="center" sx={{margin:'auto'}}>
           <Grid item xs={12} sm={6} md={4} >
             <div onClick={() => navigateHandler("Admin")}>
-              <StyledPaper elevation={3} sx={{bgcolor:' #dbebae'}}>
+              <StyledPaper elevation={3} sx={{ bgcolor:' #d1e891'}}>
                 <Box mb={2}>
                   <AccountCircle fontSize="large" />
                 </Box>
@@ -104,7 +105,7 @@ const ChooseUser = ({ visitor }) => {
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3} sx={{bgcolor:' #dbebae'}}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #d1e891'}}>
               <div onClick={() => navigateHandler("Student")}>
                 <Box mb={2}>
                   <School fontSize="large" />
@@ -117,7 +118,7 @@ const ChooseUser = ({ visitor }) => {
             </StyledPaper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3} sx={{bgcolor:' #dbebae'}}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #d1e891'}}>
               <div onClick={() => navigateHandler("Teacher")}>
                 <Box mb={2}>
                   <Group fontSize="large" />
@@ -147,7 +148,7 @@ export default ChooseUser;
 
 const StyledContainer = styled.div`
   // background: linear-gradient(to bottom, #411d70, #19118b);
-  background: black;
+  background: #093968;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -165,8 +166,8 @@ const StyledPaper = styled(Paper)`
   border-radius: 15px !important;
 
   &:hover {
-    background-color: #013036;
-    color: #dbebae;
+    background-color: #a6acdd;
+    color:rgb(2, 11, 19);
   }
 `;
 
