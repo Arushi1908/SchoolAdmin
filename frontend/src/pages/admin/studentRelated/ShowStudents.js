@@ -151,7 +151,7 @@ const ShowStudents = () => {
                             >
                                 <Paper>
                                     <ClickAwayListener onClickAway={handleClose}>
-                                        <MenuList id="split-button-menu" autoFocusItem>
+                                        <MenuList id="split-button-menu" autoFocusItem >
                                             {options.map((option, index) => (
                                                 <MenuItem
                                                     key={option}
@@ -197,7 +197,7 @@ const ShowStudents = () => {
                             </GreenButton>
                         </Box>
                         :
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                        <Paper sx={{ width: '100%', overflow: 'hidden', bgcolor:' #dbebae' }}>
                             {Array.isArray(studentsList) && studentsList.length > 0 &&
                                 <TableTemplate buttonHaver={StudentButtonHaver} columns={studentColumns} rows={studentRows} />
                             }

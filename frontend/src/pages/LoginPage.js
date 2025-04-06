@@ -125,7 +125,7 @@ const LoginPage = ({ role }) => {
         <ThemeProvider theme={defaultTheme}>
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
-                <Grid item xs={12} sm={8} md={15} component={Paper} elevation={6} square bgcolor={' black'}>
+                <Grid item xs={12} sm={8} md={15} component={Paper} elevation={6} square bgcolor={' #dbebae'}>
                     <Box
                         sx={{
                             my: 8,
@@ -135,10 +135,10 @@ const LoginPage = ({ role }) => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: " #dbebae" }}>
+                        <Typography variant="h4" sx={{ mb: 2, color: " #093968" }}>
                             {role} Login
                         </Typography>
-                        <Typography variant="h7" sx={{color:' #b7f19e'}}>
+                        <Typography variant="h7" sx={{color:' #093968'}}>
                             Welcome back! Please enter your details
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
@@ -289,5 +289,5 @@ export default LoginPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #b7f19e;
+  color: #093968;
 `;

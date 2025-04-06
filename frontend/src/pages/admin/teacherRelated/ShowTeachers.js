@@ -84,7 +84,7 @@ const ShowTeachers = () => {
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-            <TableContainer>
+            <TableContainer sx={{bgcolor:' #dbebae'}}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <StyledTableRow>

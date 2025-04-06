@@ -97,7 +97,7 @@ const ShowSubjects = () => {
                             </GreenButton>
                         </Box>
                         :
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                        <Paper sx={{ width: '100%', overflow: 'hidden', bgcolor:' #dbebae' }}>
                             {Array.isArray(subjectsList) && subjectsList.length > 0 &&
                                 <TableTemplate buttonHaver={SubjectsButtonHaver} columns={subjectColumns} rows={subjectRows} />
                             }

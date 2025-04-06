@@ -52,7 +52,7 @@ const AdminDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar open={open} position='absolute' sx={{bgcolor:'#17184B'}}>
+                <AppBar open={open} position='absolute' sx={{bgcolor:' #17184B'}}>
                     <Toolbar sx={{ pr: '24px' }}>
                         <IconButton
                             edge="start"
@@ -146,7 +146,7 @@ export default AdminDashboard
 
 const styles = {
     boxStyled: {
-        bgcolor:'#D3DDE7',
+        bgcolor:' #dbebae',
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
@@ -155,6 +155,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        
         px: [1],
     },
     drawerStyled: {

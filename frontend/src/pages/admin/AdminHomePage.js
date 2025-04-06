@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { getAllSclasses } from '../../redux/sclassRelated/sclassHandle';
 import { getAllStudents } from '../../redux/studentRelated/studentHandle';
 import { getAllTeachers } from '../../redux/teacherRelated/teacherHandle';
+import { Height } from '@mui/icons-material';
 
 const AdminHomePage = () => {
     const dispatch = useDispatch();
@@ -34,45 +35,45 @@ const AdminHomePage = () => {
 
     return (
         <>
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Container maxWidth="lg" sx={{ mt: 10, mb: 4 }}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={3} lg={3}>
                         <StyledPaper>
-                            <img src={Students} alt="Students" />
+                            <img src={Students} style={{marginTop:'2rem'}}  alt="Students" />
                             <Title>
-                                Total Students
+                                TOTAL STUDENTS
                             </Title>
                             <Data start={0} end={numberOfStudents} duration={2.5} />
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
                         <StyledPaper>
-                            <img src={Classes} alt="Classes" />
+                            <img src={Classes} style={{marginTop:'2rem'}} alt="Classes" />
                             <Title>
-                                Total Classes
+                                TOTAL CLASSES
                             </Title>
                             <Data start={0} end={numberOfClasses} duration={5} />
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
                         <StyledPaper>
-                            <img src={Teachers} alt="Teachers" />
+                            <img src={Teachers} style={{marginTop:'2rem'}} alt="Teachers" />
                             <Title>
-                                Total Teachers
+                                TOTAL TEACHERS
                             </Title>
                             <Data start={0} end={numberOfTeachers} duration={2.5} />
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
                         <StyledPaper>
-                            <img src={Fees} alt="Fees" />
+                            <img src={Fees} style={{marginTop:'2rem'}} alt="Fees" />
                             <Title>
-                                Fees Collection
+                                FEES COLLECTION
                             </Title>
-                            <Data start={0} end={23000} duration={2.5} prefix="$" />                        </StyledPaper>
+                            <Data start={0} end={2300000} duration={2.5} prefix="₹" />                        </StyledPaper>
                     </Grid>
-                    <Grid item xs={12} md={12} lg={12}>
-                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                    <Grid item xs={12} md={12} lg={12} >
+                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px' }}>
                             <SeeNotice />
                         </Paper>
                     </Grid>
@@ -87,10 +88,11 @@ const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 200px;
-  justify-content: space-between;
+  height: 300px;
+  justify-content: center;
   align-items: center;
   text-align: center;
+  border-radius: 30px !important;
 `;
 
 const Title = styled.p`

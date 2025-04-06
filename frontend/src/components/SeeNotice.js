@@ -40,11 +40,11 @@ const SeeNotice = () => {
         };
     });
     return (
-        <div style={{ marginTop: '50px', marginRight: '20px' }}>
+        <div style={{ margin: '10px 20px', height:'20px', justifyContent:'center' }}>
             {loading ? (
                 <div style={{ fontSize: '20px' }}>Loading...</div>
             ) : response ? (
-                <div style={{ fontSize: '20px' }}>No Notices to Show Right Now</div>
+                <div style={{ fontSize: '20px', textAlign:'center' }}>No Notices to Show Right Now</div>
             ) : (
                 <>
                     <h3 style={{ fontSize: '30px', marginBottom: '40px' }}>Notices</h3>
