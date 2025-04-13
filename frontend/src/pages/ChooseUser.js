@@ -93,7 +93,7 @@ const ChooseUser = ({ visitor }) => {
         <Grid container spacing={3} justifyContent="center" sx={{margin:'auto'}}>
           <Grid item xs={12} sm={6} md={4} >
             <div onClick={() => navigateHandler("Admin")}>
-              <StyledPaper elevation={3} sx={{ bgcolor:' #d1e891'}}>
+              <StyledPaper elevation={3} sx={{ bgcolor:' #122C4F'}}>
                 <Box mb={2}>
                   <AccountCircle fontSize="large" />
                 </Box>
@@ -105,7 +105,7 @@ const ChooseUser = ({ visitor }) => {
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3} sx={{bgcolor:' #d1e891'}}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #122C4F'}}>
               <div onClick={() => navigateHandler("Student")}>
                 <Box mb={2}>
                   <School fontSize="large" />
@@ -118,7 +118,7 @@ const ChooseUser = ({ visitor }) => {
             </StyledPaper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3} sx={{bgcolor:' #d1e891'}}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #122C4F'}}>
               <div onClick={() => navigateHandler("Teacher")}>
                 <Box mb={2}>
                   <Group fontSize="large" />
@@ -148,7 +148,7 @@ export default ChooseUser;
 
 const StyledContainer = styled.div`
   // background: linear-gradient(to bottom, #411d70, #19118b);
-  background: #093968;
+  background: #5B88B2s;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -157,11 +157,11 @@ const StyledContainer = styled.div`
 `;
 
 const StyledPaper = styled(Paper)`
-  padding: 20px;
+  padding:30px;
   text-align: center;
   color: #17184B;
   cursor:pointer;
-  height: 40vh;
+  height: 35vh;
   width: 15vw;
   border-radius: 15px !important;
 

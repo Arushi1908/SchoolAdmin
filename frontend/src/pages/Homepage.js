@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Box, Button } from '@mui/material';
 import styled from 'styled-components';
-import Students from "../assets/Artboard1.png";
+import Students from "../assets/class1.jpg";
 import { LightPurpleButton } from '../components/buttonStyles';
 
 
 const Homepage = () => {
     return (
         <StyledContainer  sx={{ width:'100%'}}>
-            <Grid container  spacing={2} sx={{ margin: 0 }}>
+            <Grid container  spacing={2} sx={{ margin: 0}}>
                 <Grid item xs={12} md={6}  >
                     <StyledPaper elevation={3}>
                         <StyledTitle>
@@ -26,20 +26,21 @@ const Homepage = () => {
                         </StyledText>
                         <StyledBox>
                             <StyledLink to="/choose">
-                                <Button variant="contained" fullWidth style={{marginTop:'30%'}} sx={{color:' #273287', bgcolor:' #dbebae', '&:hover': {bgcolor: ' transparent', border: '1px solid #1976d2', color:' #dbebae'}}}>
+                                <Button variant="contained" fullWidth style={{marginTop:'30%'}} sx={{color:' #122C4F', bgcolor:'#FCACB3', '&:hover': {bgcolor: ' #5B88B2', border: '1px solid #1976d2', color:' ##5B88B2'}}}>
                                     Login
                                 </Button>
                             </StyledLink>
-                            <StyledLink to="/chooseasguest">
+                           {/* <StyledLink to="/chooseasguest">
                                 <Button variant="outlined" fullWidth style={{marginTop:'10%'}}
-                                    sx={{ mt: 2, mb: 3, color: " #dbebae", borderColor: " #dbebae" }}
+                                    sx={{ mt: 2, mb: 3, color: "#5B88B2", borderColor: " #122C4F" ,'&:hover': {bgcolor: ' #FCACB3', border: '1px solid #1976d2', color:' #122C4F'}}}
                                 >
                                     Login as Guest
                                 </Button>
-                            </StyledLink>
-                            <StyledText style={{paddingTop: '1%', paddingRight:'5%'}}>
+                            </StyledLink> */}
+                            
+                            <StyledText style={{paddingTop: '0.7%', paddingRight:'5%'}}>
                                 Don't have an account?{' '}
-                                <Link to="/Adminregister" style={{color:" #dbebae"}}>
+                                <Link to="/Adminregister" style={{color:" #FCACB3"}}>
                                     Sign up
                                 </Link>
                             </StyledText>
@@ -59,7 +60,7 @@ export default Homepage;
 
 const StyledContainer = styled.div`
   display: flex;
-  background-color: #093968 ;
+  background-color:rgb(255,255,255)) ;
   padding: 10px 30px;
   flexDirection: 'column';
   align-items: center;
@@ -83,10 +84,10 @@ const StyledBox = styled(Box)`
 
 const StyledTitle = styled.h1`
   font-size: 3rem;
-  color: #dbebae;
+  color: #5B88B2;
   /* font-family: "Manrope"; */
   font-weight: bold;
-  padding-top: 0;
+  padding-top: 10%;
   padding-left: 4%;
   letter-spacing: normal;
   line-height: normal;
@@ -94,7 +95,7 @@ const StyledTitle = styled.h1`
 
 const StyledText = styled.p`
   /* color: #550080; */
-  color:rgb(205, 158, 241) ;
+  color: #122C4F ;
   margin-top: 30px;
   margin-bottom: 30px; 
   letter-spacing: normal;
