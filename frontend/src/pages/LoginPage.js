@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import bgpic from "../assets/designlogin.jpg"
+import bgpic from "../assets/download2.jpg"
 import { LightPurpleButton } from '../components/buttonStyles';
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
@@ -125,7 +125,16 @@ const LoginPage = ({ role }) => {
         <ThemeProvider theme={defaultTheme}>
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
-                <Grid item xs={12} sm={8} md={15} component={Paper} elevation={6} square bgcolor={' #dbebae'}>
+                <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square sx={{
+                    backgroundImage: `url(${bgpic})`,
+                    height: '100vh',
+                    width: '100%',
+                    
+                    backgroundSize: 'cover',
+                    backgroundPositionX: 'calc(50% - 280px)', // Move image ~70px to the left
+                    backgroundPositionY: 'center',
+                    
+                }}>
                     <Box
                         sx={{
                             my: 8,
@@ -135,10 +144,10 @@ const LoginPage = ({ role }) => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: " #093968" }}>
+                        <Typography variant="h4" sx={{ mb: 2, color: " #9cb6d1" }}>
                             {role} Login
                         </Typography>
-                        <Typography variant="h7" sx={{color:' #093968'}}>
+                        <Typography variant="h7" sx={{color:' #253f7c'}}>
                             Welcome back! Please enter your details
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
@@ -186,7 +195,7 @@ const LoginPage = ({ role }) => {
                                     error={emailError}
                                     helperText={emailError && 'Email is required'}
                                     onChange={handleInputChange}
-                                    sx={{color:' #b7f19e'}}
+                                    sx={{color:' #253f7c'}}
                                 />
                             )}
                             <TextField
@@ -215,7 +224,7 @@ const LoginPage = ({ role }) => {
                                     ),
                                 }}
                             />
-                            <Grid container sx={{ display: "flex", justifyContent: "space-between" }}>
+                            <Grid container sx={{ display: "flex", justifyContent: "space-between", color:' #253f7c' }}>
                                 <FormControlLabel
                                     control={<Checkbox value="remember" />}
                                     label="Remember me"
@@ -228,23 +237,23 @@ const LoginPage = ({ role }) => {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, bgcolor:'#273287', color:'#D8E63C' }}
+                                sx={{ mt: 3, bgcolor:' #253f7c', color:' #9cb6d1', '&:hover': {bgcolor: ' #9cb6d1', color:'#253f7c'} }}
                             >
                                 {loader ?
                                     <CircularProgress size={24} color="inherit" />
                                     : "Login"}
                             </Button>
-                            <Button
+                            {/* <Button
                                 fullWidth
                                 onClick={guestModeHandler}
                                 variant="outlined"
                                 sx={{ mt: 2, mb: 3, color: "#273287", borderColor: "#273287" }}
                             >
                                 Login as Guest
-                            </Button>
+                            </Button> */}
                             {role === "Admin" &&
-                                <Grid container>
-                                    <Grid sx={{color: "#273287"}}>
+                                <Grid container justifyContent="center" alignItems="center" sx={{marginTop:'2%'}}>
+                                    <Grid sx={{color: " #273287"}}>
                                         Don't have an account?
                                     </Grid>
                                     <Grid item sx={{ ml: 2 }}>
@@ -289,5 +298,5 @@ export default LoginPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #093968;
+  color: #273287;
 `;

@@ -19,61 +19,61 @@ const SideBar = () => {
             <React.Fragment>
                 <ListItemButton component={Link} to="/">
                     <ListItemIcon>
-                        <HomeIcon sx={{ color: location.pathname === "/" || location.pathname === "/Admin/dashboard" ? "#17184B" : "gray" }} />
+                        <HomeIcon sx={{ color: location.pathname === "/" || location.pathname === "/Admin/dashboard" ? " #9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Home" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/classes">
                     <ListItemIcon>
-                        <ClassOutlinedIcon sx={{ color: location.pathname.startsWith('/Admin/classes') ? "#17184B" : "gray" }} />
+                        <ClassOutlinedIcon sx={{ color: location.pathname.startsWith('/Admin/classes') ? "#9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Classes" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/subjects">
                     <ListItemIcon>
-                        <AssignmentIcon sx={{ color: location.pathname.startsWith('/Admin/subjects') ? "#17184B" : "gray" }} />
+                        <AssignmentIcon sx={{ color: location.pathname.startsWith('/Admin/subjects') ? "#9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Subjects" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/teachers">
                     <ListItemIcon>
-                        <SupervisorAccountOutlinedIcon sx={{ color: location.pathname.startsWith('/Admin/teachers') ? "#17184B" : "gray" }} />
+                        <SupervisorAccountOutlinedIcon sx={{ color: location.pathname.startsWith('/Admin/teachers') ? "#9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Teachers" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/students">
                     <ListItemIcon>
-                        <PersonOutlineIcon sx={{ color: location.pathname.startsWith('/Admin/students') ? "#17184B" : "gray" }} />
+                        <PersonOutlineIcon sx={{ color: location.pathname.startsWith('/Admin/students') ? "#9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Students" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/notices">
                     <ListItemIcon>
-                        <AnnouncementOutlinedIcon sx={{ color: location.pathname.startsWith('/Admin/notices') ? "#17184B" : "gray" }} />
+                        <AnnouncementOutlinedIcon sx={{ color: location.pathname.startsWith('/Admin/notices') ? "#9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Notices" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/complains">
                     <ListItemIcon>
-                        <ReportIcon sx={{ color: location.pathname.startsWith('/Admin/complains') ? "#17184B" : "gray" }} />
+                        <ReportIcon sx={{ color: location.pathname.startsWith('/Admin/complains') ? "#9cb6d1" : "gray" }} />
                     </ListItemIcon>
                     <ListItemText primary="Complains" />
                 </ListItemButton>
             </React.Fragment>
-            <Divider sx={{ my: 1 }} />
+            <Divider sx={{ my: 0 }} />
             <React.Fragment>
-                <ListSubheader component="div" inset>
+                <ListSubheader component="div" inset sx={{bgcolor:' #122C4F', color:' white'}}>
                     User
                 </ListSubheader>
                 <ListItemButton component={Link} to="/Admin/profile">
                     <ListItemIcon>
-                        <AccountCircleOutlinedIcon color={location.pathname.startsWith("/Admin/profile") ? 'primary' : 'inherit'} />
+                        <AccountCircleOutlinedIcon sx = {{color: location.pathname.startsWith("/Admin/profile") ? ' #9cb6d1' : 'gray'}} />
                     </ListItemIcon>
                     <ListItemText primary="Profile" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/logout">
                     <ListItemIcon>
-                        <ExitToAppIcon color={location.pathname.startsWith("/logout") ? 'primary' : 'inherit'} />
+                        <ExitToAppIcon sx={{color: location.pathname.startsWith("/logout") ? ' #9cb6d1' : 'gray'}} />
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
                 </ListItemButton>

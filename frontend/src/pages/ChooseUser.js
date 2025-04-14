@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
-import bgimg from '../assets/classroom.png'
+import bgimg from '../assets/illus1.jpg'
 
 const ChooseUser = ({ visitor }) => {
   const dispatch = useDispatch()
@@ -93,11 +93,11 @@ const ChooseUser = ({ visitor }) => {
         <Grid container spacing={3} justifyContent="center" sx={{margin:'auto'}}>
           <Grid item xs={12} sm={6} md={4} >
             <div onClick={() => navigateHandler("Admin")}>
-              <StyledPaper elevation={3} sx={{ bgcolor:' #122C4F'}}>
+              <StyledPaper elevation={3} sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
                 <Box mb={2}>
                   <AccountCircle fontSize="large" />
                 </Box>
-                <StyledTypography sx={{color:' #013036', '&:hover' : {color:' #dbebae'}}}>
+                <StyledTypography >
                   Admin
                 </StyledTypography>
                 Login as an administrator to access the dashboard to manage app data.
@@ -105,7 +105,7 @@ const ChooseUser = ({ visitor }) => {
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3} sx={{bgcolor:' #122C4F'}}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #122C4F',  color: ' #9cb6d1'}}>
               <div onClick={() => navigateHandler("Student")}>
                 <Box mb={2}>
                   <School fontSize="large" />
@@ -118,7 +118,7 @@ const ChooseUser = ({ visitor }) => {
             </StyledPaper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3} sx={{bgcolor:' #122C4F'}}>
+            <StyledPaper elevation={3} sx={{bgcolor:' #122C4F', color: ' #9cb6d1'}}>
               <div onClick={() => navigateHandler("Teacher")}>
                 <Box mb={2}>
                   <Group fontSize="large" />
@@ -148,7 +148,8 @@ export default ChooseUser;
 
 const StyledContainer = styled.div`
   // background: linear-gradient(to bottom, #411d70, #19118b);
-  background: #5B88B2s;
+  // background: #093968;
+  background-image: url(${bgimg});
   height: 100vh;
   display: flex;
   align-items: center;
@@ -159,19 +160,20 @@ const StyledContainer = styled.div`
 const StyledPaper = styled(Paper)`
   padding:30px;
   text-align: center;
-  color: #17184B;
   cursor:pointer;
   height: 35vh;
   width: 15vw;
   border-radius: 15px !important;
 
   &:hover {
-    background-color: #a6acdd;
-    color:rgb(2, 11, 19);
+    background-color: #9cb6d1;
+    color: #122C4F;
+    border: 3px solid #122C4F;
   }
 `;
 
 const StyledTypography = styled.h2`
   margin-bottom: 10px;
+
 
 `;
