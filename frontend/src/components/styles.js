@@ -9,13 +9,18 @@ import {
 
 const drawerWidth = 240
 
-export const StyledTableCell = styled(TableCell)(({ theme }) => ({
+export const StyledTableCell = styled(TableCell, {
+    shouldForwardProp: (prop) => prop !== 'customHeadBg',
+})(({ theme, customHeadBg, customHeadColor }) => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
+        backgroundColor: customHeadBg || theme.palette.common.black,
+        color: customHeadColor || theme.palette.common.white,
+        
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,
+        color: '#9cb6d1',
+        fontWeight: 'bold',
     },
 }));
 

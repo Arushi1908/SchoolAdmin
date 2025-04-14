@@ -56,11 +56,11 @@ const SeeComplains = () => {
               No Complains Right Now
             </Box>
             :
-            <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+            <>
               {Array.isArray(complainsList) && complainsList.length > 0 &&
                 <TableTemplate buttonHaver={ComplainButtonHaver} columns={complainColumns} rows={complainRows} />
               }
-            </Paper>
+            </>
           }
         </>
       }

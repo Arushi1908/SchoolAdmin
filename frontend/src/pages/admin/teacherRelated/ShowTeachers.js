@@ -83,8 +83,8 @@ const ShowTeachers = () => {
     ];
 
     return (
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-            <TableContainer sx={{bgcolor:' #dbebae'}}>
+        <>
+            <TableContainer sx={{bgcolor:' #122C4F'}}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <StyledTableRow>
@@ -93,11 +93,17 @@ const ShowTeachers = () => {
                                     key={column.id}
                                     align={column.align}
                                     style={{ minWidth: column.minWidth }}
+                                    customHeadBg=' #9cb6d1'
+                                    customHeadColor= ' #122C4F'
                                 >
                                     {column.label}
                                 </StyledTableCell>
                             ))}
-                            <StyledTableCell align="center">
+                            <StyledTableCell 
+                                align="center" 
+                                customHeadBg=' #9cb6d1'
+                                customHeadColor= ' #122C4F'
+                            >
                                 Actions
                             </StyledTableCell>
                         </StyledTableRow>
@@ -148,6 +154,7 @@ const ShowTeachers = () => {
                 </Table>
             </TableContainer>
             <TablePagination
+                sx={{color: ' #122C4F'}}
                 rowsPerPageOptions={[5, 10, 25, 100]}
                 component="div"
                 count={rows.length}
@@ -162,7 +169,7 @@ const ShowTeachers = () => {
 
             <SpeedDialTemplate actions={actions} />
             <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
-        </Paper >
+            </>  
     );
 };
 

@@ -155,7 +155,7 @@ export default AdminDashboard
 
 const styles = {
     boxStyled: {
-        // backgroundImage: `url(${bgimg})`,
+        backgroundImage: `url(${bgimg})`,
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',

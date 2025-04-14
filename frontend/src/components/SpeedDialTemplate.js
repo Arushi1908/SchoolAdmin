@@ -8,6 +8,7 @@ const SpeedDialTemplate = ({ actions }) => {
             ariaLabel="SpeedDial playground example"
             icon={<TuneIcon />}
             direction="left"
+            // sx={{bgcolor: '#9cb6d1'}}
         >
             {actions.map((action) => (
                 <SpeedDialAction

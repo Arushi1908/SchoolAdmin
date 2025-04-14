@@ -90,8 +90,8 @@ const ShowClasses = () => {
     };
     return (
       <>
-        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-          <Tooltip title="Add Students & Subjects">
+        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center', }}>
+          <Tooltip title="Add Students & Subjects" style={{color:' #9cb6d1'}}>
             <IconButton
               onClick={handleClick}
               size="small"
@@ -100,7 +100,7 @@ const ShowClasses = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
             >
-              <h5>Add</h5>
+              <h5 style={{color:' #9cb6d1'}}>Add</h5>
               <SpeedDialIcon />
             </IconButton>
           </Tooltip>
@@ -149,7 +149,7 @@ const ShowClasses = () => {
         :
         <>
           {getresponse ?
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px',}}>
               <GreenButton variant="contained" onClick={() => navigate("/Admin/addclass")}>
                 Add Class
               </GreenButton>
@@ -159,7 +159,7 @@ const ShowClasses = () => {
               {Array.isArray(sclassesList) && sclassesList.length > 0 &&
                 <TableTemplate buttonHaver={SclassButtonHaver} columns={sclassColumns} rows={sclassRows} />
               }
-              <SpeedDialTemplate actions={actions} />
+              <SpeedDialTemplate actions={actions}  />
             </>}
         </>
       }
