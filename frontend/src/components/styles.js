@@ -19,14 +19,16 @@ export const StyledTableCell = styled(TableCell, {
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,
-        color: '#9cb6d1',
+        color: ' #9cb6d1',
         fontWeight: 'bold',
+        backgroundColor: '#122C4F'
     },
 }));
 
 export const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    backgroundColor: '#122C4F',
     '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
+        backgroundColor: '#122C4F',
     },
     // hide last border
     '&:last-child td, &:last-child th': {

@@ -45,7 +45,7 @@ const AdminProfile = () => {
     // }
 
     return (
-        <div>
+        <div style={{alignContent:'center', textAlign:'center', borderRadius:'10%', justifyContent:'center', margin:'15% auto', padding:'2%', backgroundColor:'#122C4F', color:'#9cb6d1', width:'25%', height:'40%', fontSize:'110%'}}>
             Name: {currentUser.name}
             <br />
             Email: {currentUser.email}

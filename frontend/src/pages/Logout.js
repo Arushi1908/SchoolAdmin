@@ -65,7 +65,7 @@ const LogoutButton = styled.button`
 `;
 
 const LogoutButtonLogout = styled(LogoutButton)`
-  background-color: #ea0606;
+  background-color: #122C4F;
 `;
 
 const LogoutButtonCancel = styled(LogoutButton)`

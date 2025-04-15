@@ -7,9 +7,11 @@ import { getUserDetails } from '../../redux/userRelated/userHandle';
 import styled from 'styled-components';
 import SeeNotice from '../../components/SeeNotice';
 import CountUp from 'react-countup';
-import Subject from "../../assets/subjects.svg";
-import Assignment from "../../assets/assignment.svg";
+// import Subject from "../../assets/subjects.svg";
+// import Assignment from "../../assets/assignment.svg";
 import { getSubjectList } from '../../redux/sclassRelated/sclassHandle';
+import DescriptionIcon from '@mui/icons-material/Description';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const StudentHomePage = () => {
     const dispatch = useDispatch();
@@ -43,22 +45,22 @@ const StudentHomePage = () => {
     ];
     return (
         <>
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Grid container spacing={3}>
+            <Container maxWidth="" sx={{ mt: 4, mb: 4, px:10, }}>
+                <Grid container sx={{ px:15, mt:5, justifyContent:'space-between' }} spacing={3}>
                     <Grid item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Subject} alt="Subjects" />
+                        <StyledPaper sx={{bgcolor:' #122C4F', color:' #9cb6d1'}}>
+                            <MenuBookIcon sx={{fontSize:70, marginBottom:'10%'}} />
                             <Title>
-                                Total Subjects
+                                TOTAL SUBJECTS
                             </Title>
                             <Data start={0} end={numberOfSubjects} duration={2.5} />
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Assignment} alt="Assignments" />
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                            <DescriptionIcon sx={{fontSize:70, marginBottom:'10%'}} />
                             <Title>
-                                Total Assignments
+                                TOTAL ASSIGNMENTS
                             </Title>
                             <Data start={0} end={15} duration={4} />
                         </StyledPaper>
@@ -92,7 +94,7 @@ const StudentHomePage = () => {
                         </ChartContainer>
                     </Grid>
                     <Grid item xs={12}>
-                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px', bgcolor: ' #122C4F', color: ' #9cb6d1' }}>
                             <SeeNotice />
                         </Paper>
                     </Grid>
@@ -106,20 +108,22 @@ const ChartContainer = styled.div`
   padding: 2px;
   display: flex;
   flex-direction: column;
-  height: 240px;
+  height: 280px;
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 `;
 
 const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 200px;
-  justify-content: space-between;
+  height: 280px;
+  justify-content: center;
   align-items: center;
   text-align: center;
+  border-radius: 30px !important;
 `;
 
 const Title = styled.p`
@@ -128,7 +132,7 @@ const Title = styled.p`
 
 const Data = styled(CountUp)`
   font-size: calc(1.3rem + .6vw);
-  color: green;
+  color: #9cb6d1;
 `;
 
 

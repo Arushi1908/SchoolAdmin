@@ -51,7 +51,7 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-const COLORS = ['#326e0a', '#930909'];
+const COLORS = ['#122C4F', 'rgb(42, 103, 182)'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -77,7 +77,7 @@ const CustomPieChart = ({ data }) => {
                     labelLine={false}
                     label={renderCustomizedLabel}
                     outerRadius={80}
-                    fill="#8884d8"
+                    fill=" #8884d8"
                     dataKey="value"
                 >
                     {data.map((entry, index) => (

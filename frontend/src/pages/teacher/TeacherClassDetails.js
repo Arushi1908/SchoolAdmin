@@ -159,15 +159,15 @@ const TeacherClassDetails = () => {
                             </Box>
                         </>
                     ) : (
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-                            <Typography variant="h5" gutterBottom>
+                        <>
+                            <Typography variant="h5" gutterBottom sx={{bgcolor:' #122C4F'}}>
                                 Students List:
                             </Typography>
 
                             {Array.isArray(sclassStudents) && sclassStudents.length > 0 &&
                                 <TableTemplate buttonHaver={StudentsButtonHaver} columns={studentColumns} rows={studentRows} />
                             }
-                        </Paper>
+                        </>
                     )}
                 </>
             )}

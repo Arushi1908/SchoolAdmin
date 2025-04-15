@@ -14,12 +14,12 @@ const StudentProfile = () => {
 
   return (
     <>
-      <Container maxWidth="md">
-        <StyledPaper elevation={3}>
+      <Container maxWidth="md" sx={{mt: 5, justifyItems:'center'}}>
+        <StyledPaper elevation={13} sx={{bgcolor:' #122C4F', color: ' #9cb6d1'}}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center">
-                <Avatar alt="Student Avatar" sx={{ width: 150, height: 150 }}>
+                <Avatar alt="Student Avatar" sx={{ width: 120, height: 120 }}>
                   {String(currentUser.name).charAt(0)}
                 </Avatar>
               </Box>
@@ -67,4 +67,6 @@ export default StudentProfile
 const StyledPaper = styled(Paper)`
   padding: 20px;
   margin-bottom: 20px;
+  border-radius: 30px;
+  width: 50%;
 `;

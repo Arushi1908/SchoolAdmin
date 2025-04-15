@@ -24,6 +24,8 @@ import TeacherProfile from './TeacherProfile';
 import TeacherViewStudent from './TeacherViewStudent';
 import StudentExamMarks from '../admin/studentRelated/StudentExamMarks';
 
+import bgimg from '../../assets/illus1.jpg'
+
 const TeacherDashboard = () => {
     const [open, setOpen] = useState(true);
     const toggleDrawer = () => {
@@ -34,7 +36,7 @@ const TeacherDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar open={open} position='absolute'>
+                <AppBar open={open} position='absolute' sx={{bgcolor:' #122C4F', color: ' #9cb6d1',}}>
                     <Toolbar sx={{ pr: '24px' }}>
                         <IconButton
                             edge="start"
@@ -60,14 +62,21 @@ const TeacherDashboard = () => {
                         <AccountMenu />
                     </Toolbar>
                 </AppBar>
-                <Drawer variant="permanent" open={open} sx={open ? styles.drawerStyled : styles.hideDrawer}>
+                <Drawer variant="permanent" open={open} sx={{
+                    '& .MuiDrawer-paper': {
+                    bgcolor: ' #122C4F',
+                    color: ' #9cb6d1',
+                    boxSizing: 'border-box',
+                    
+                    },
+                }}>
                     <Toolbar sx={styles.toolBarStyled}>
                         <IconButton onClick={toggleDrawer}>
                             <ChevronLeftIcon />
                         </IconButton>
                     </Toolbar>
                     <Divider />
-                    <List component="nav">
+                    <List component="nav" sx={{bgcolor: ' #122C4F', color: 'white'}}>
                         <TeacherSideBar />
                     </List>
                 </Drawer>
@@ -99,10 +108,11 @@ export default TeacherDashboard
 
 const styles = {
     boxStyled: {
-        backgroundColor: (theme) =>
-            theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+        // backgroundColor: (theme) =>
+        //     theme.palette.mode === 'light'
+        //         ? theme.palette.grey[100]
+        //         : theme.palette.grey[900],
+        backgroundImage: `url(${bgimg})`,
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
@@ -114,12 +124,14 @@ const styles = {
         px: [1],
     },
     drawerStyled: {
-        display: "flex"
+        display: "flex",
+        bgcolor: ' #17184B',
     },
     hideDrawer: {
         display: 'flex',
         '@media (max-width: 600px)': {
             display: 'none',
         },
+        bgcolor: ' #17184B'
     },
 }

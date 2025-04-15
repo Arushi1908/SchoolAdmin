@@ -176,6 +176,6 @@ const styles = {
         '@media (max-width: 600px)': {
             display: 'none',
         },
-        bgcolor: '#17184B'
+        bgcolor: ' #17184B'
     },
 }

@@ -16,7 +16,7 @@ const TeacherProfile = () => {
   return (
     <>
       <ProfileCard>
-        <ProfileCardContent>
+        <ProfileCardContent >
           <ProfileText>Name: {currentUser.name}</ProfileText>
           <ProfileText>Email: {currentUser.email}</ProfileText>
           <ProfileText>Class: {teachSclass.sclassName}</ProfileText>
@@ -34,12 +34,14 @@ const ProfileCard = styled(Card)`
   margin: 20px;
   width: 400px;
   border-radius: 10px;
+  background-color: #122C4F;
 `;
 
 const ProfileCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #122C4F;
 `;
 
 const ProfileText = styled(Typography)`

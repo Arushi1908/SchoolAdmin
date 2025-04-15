@@ -119,13 +119,13 @@ const CustomTooltip = styled.div`
 const TooltipText = styled.p`
   margin: 0;
   font-weight: bold;
-  color:#1e1e1e;
+  color: #1e1e1e;
 `;
 
 const TooltipMain = styled.h2`
   margin: 0;
   font-weight: bold;
-  color:#000000;
+  color: #000000;
 `;
 
 const CustomTooltipContent = ({ active, payload, dataKey }) => {

@@ -1,9 +1,9 @@
 import { Container, Grid, Paper, SvgIcon } from '@mui/material'
 import SeeNotice from '../../components/SeeNotice';
-import Students from "../../assets/img1.png";
-import Classes from "../../assets/img2.png";
-import Teachers from "../../assets/img3.png";
-import Fees from "../../assets/img4.png";
+// import Students from "../../assets/img1.png";
+// import Classes from "../../assets/img2.png";
+// import Teachers from "../../assets/img3.png";
+// import Fees from "../../assets/img4.png";
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +18,6 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import bgimg from '../../assets/illus1.jpg';
 
-import { Height } from '@mui/icons-material';
 
 const AdminHomePage = () => {
     const dispatch = useDispatch();

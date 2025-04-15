@@ -52,8 +52,15 @@ const StudentSubjects = () => {
                 <Table>
                     <TableHead>
                         <StyledTableRow>
-                            <StyledTableCell>Subject</StyledTableCell>
-                            <StyledTableCell>Marks</StyledTableCell>
+                            <StyledTableCell customHeadBg=' #122C4F'
+                                    customHeadColor= ' #9cb6d1'
+                                    sx={{fontSize:'100%'}}
+                                    >
+                                        Subject
+                            </StyledTableCell>
+                            <StyledTableCell customHeadBg=' #122C4F'
+                                    customHeadColor= ' #9cb6d1'
+                                    sx={{fontSize:'100%'}}>Marks</StyledTableCell>
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>
@@ -63,7 +70,13 @@ const StudentSubjects = () => {
                             }
                             return (
                                 <StyledTableRow key={index}>
-                                    <StyledTableCell>{result.subName.subName}</StyledTableCell>
+                                    <StyledTableCell 
+                                        
+                                        sx={{fontSize:'100%'}}>
+                                            {result.subName.subName}
+                                    </StyledTableCell>
+
+                                    
                                     <StyledTableCell>{result.marksObtained}</StyledTableCell>
                                 </StyledTableRow>
                             );

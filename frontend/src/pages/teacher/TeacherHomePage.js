@@ -10,6 +10,11 @@ import { getClassStudents, getSubjectDetails } from '../../redux/sclassRelated/s
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+import SchoolIcon from '@mui/icons-material/School';
+import ClassIcon from '@mui/icons-material/Class';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+
 const TeacherHomePage = () => {
     const dispatch = useDispatch();
 
@@ -29,11 +34,11 @@ const TeacherHomePage = () => {
 
     return (
         <>
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Grid container spacing={3}>
+            <Container maxWidth="lg" sx={{ pt: 10, pb: 4, height:'100vh', backgroundSize:'contain', }}>
+                <Grid container spacing={3} sx={{ px: 10 }}>
                     <Grid item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Students} alt="Students" />
+                        <StyledPaper sx={{bgcolor:' #122C4F', color:' #9cb6d1'}}>
+                        <SchoolIcon sx={{fontSize:70, marginBottom:'10%'}}/>
                             <Title>
                                 Class Students
                             </Title>
@@ -41,8 +46,8 @@ const TeacherHomePage = () => {
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Lessons} alt="Lessons" />
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                        <ClassIcon sx={{fontSize:70, marginBottom:'10%'}}/>
                             <Title>
                                 Total Lessons
                             </Title>
@@ -50,8 +55,8 @@ const TeacherHomePage = () => {
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Tests} alt="Tests" />
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                        <AssignmentIcon sx={{fontSize:70, marginBottom:'10%'}}/>
                             <Title>
                                 Tests Taken
                             </Title>
@@ -59,15 +64,15 @@ const TeacherHomePage = () => {
                         </StyledPaper>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Time} alt="Time" />
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                            <AccessTimeIcon sx={{fontSize:70, marginBottom:'10%'}}/>
                             <Title>
                                 Total Hours
                             </Title>
                             <Data start={0} end={30} duration={4} suffix="hrs"/>                        </StyledPaper>
                     </Grid>
                     <Grid item xs={12}>
-                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px', bgcolor: ' #122C4F', color: ' #9cb6d1' }}>
                             <SeeNotice />
                         </Paper>
                     </Grid>
