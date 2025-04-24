@@ -4,12 +4,14 @@ import { Container, Grid, Box, Button } from '@mui/material';
 import styled from 'styled-components';
 import Students from "../assets/class1.jpg";
 import { LightPurpleButton } from '../components/buttonStyles';
+import Navbar from '../components/Navbar';
 
 
 const Homepage = () => {
     return (
         <StyledContainer  sx={{ width:'100%'}}>
-            <Grid container  spacing={2} sx={{ margin: 0}}>
+            <Navbar  />
+            <Grid container  spacing={2} sx={{ margin: 0, pt:3}}>
                 <Grid item xs={12} md={6}  >
                     <StyledPaper elevation={3}>
                         <StyledTitle>
@@ -48,8 +50,8 @@ const Homepage = () => {
                     </StyledPaper>
                 </Grid>
 
-                <Grid item xs={12} md={6} >
-                    <img src={Students} alt="students" style={{ width: '100%' }} />
+                <Grid item xs={12} md={6} sx={{mt:6}} >
+                    <img src={Students} alt="students" style={{ width: '100%', height:'75%' }} />
                 </Grid>
             </Grid>
         </StyledContainer>
