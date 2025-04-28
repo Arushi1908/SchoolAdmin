@@ -3,13 +3,11 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Button,
   Drawer,
   List,
   ListItem,
   ListItemText,
-  Collapse,
   Box,
   Divider,
 } from "@mui/material";
@@ -54,7 +52,7 @@ const LINKS = [
   },
   {
     text: "About Us",
-    href: "/aboutus",
+    href: "/About",
   },
   {
     text: "Contact Us",

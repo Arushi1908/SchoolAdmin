@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'HostGrotesk';
+    src: url('../assets/fonts/HostGrotesk-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,700;1,100;1,700&display=swap');

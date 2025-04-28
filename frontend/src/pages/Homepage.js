@@ -1,34 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Box, Button } from '@mui/material';
+import {Grid, Box, Button } from '@mui/material';
 import styled from 'styled-components';
 import Students from "../assets/class1.jpg";
-import { LightPurpleButton } from '../components/buttonStyles';
 import Navbar from '../components/Navbar';
+import About from './AboutUs';
+import '../styles/font.css';
 
 
 const Homepage = () => {
     return (
+        <>
         <StyledContainer  sx={{ width:'100%'}}>
             <Navbar  />
             <Grid container  spacing={2} sx={{ margin: 0, pt:3}}>
                 <Grid item xs={12} md={6}  >
                     <StyledPaper elevation={3}>
-                        <StyledTitle>
-                            <span style={{paddingLeft:'20%'}}> Welcome to </span>
+                        <StyledTitle style={{fontFamily:" 'HostGrotesk' "}}>
+                            <span style={{paddingLeft:'20%'}}> WELCOME TO </span>
                             <br />
-                            School Admin
+                            <span>SCHOOL ADMIN SYSTEM</span>
                             
-                            System
+                            
                         </StyledTitle>
-                        <StyledText>
+                        <StyledText style={{marginBottom:'2%', }}>
                             Streamline school management, class organization, and add students and faculty.
                             Seamlessly track attendance, assess performance, and provide feedback.
                             Access records, view marks, and communicate effortlessly.
                         </StyledText>
                         <StyledBox>
                             <StyledLink to="/choose">
-                                <Button variant="contained" fullWidth style={{marginTop:'30%'}} sx={{color:' #122C4F', bgcolor:'#FCACB3', '&:hover': {bgcolor: ' #5B88B2', border: '1px solid #1976d2', color:' ##5B88B2'}}}>
+                                <Button variant="contained" fullWidth style={{marginTop:'30%'}} sx={{color:' #122C4F', bgcolor:' #FCACB3', '&:hover': {bgcolor: ' #5B88B2', border: '1px solid #1976d2', color:' ##5B88B2'}}}>
                                     Login
                                 </Button>
                             </StyledLink>
@@ -40,7 +42,7 @@ const Homepage = () => {
                                 </Button>
                             </StyledLink> */}
                             
-                            <StyledText style={{paddingTop: '0.7%', paddingRight:'5%'}}>
+                            <StyledText style={{paddingTop: '0.7%', paddingRight:'5%', marginBottom:'0'}}>
                                 Don't have an account?{' '}
                                 <Link to="/Adminregister" style={{color:" #FCACB3"}}>
                                     Sign up
@@ -55,6 +57,8 @@ const Homepage = () => {
                 </Grid>
             </Grid>
         </StyledContainer>
+        <About/>
+        </>
     );
 };
 
@@ -63,7 +67,7 @@ export default Homepage;
 const StyledContainer = styled.div`
   display: flex;
   background-color:rgb(255,255,255)) ;
-  padding: 10px 30px;
+  padding: 1% 2% 0 2%;
   flexDirection: 'column';
   align-items: center;
    justify-content: center;
@@ -71,8 +75,8 @@ const StyledContainer = styled.div`
 
 
 const StyledPaper = styled.div`
-  padding: 24px;
-  height: 100vh;
+  padding: 2% 2% 0% 2%;
+  height: 0vh;
 `;
 
 const StyledBox = styled(Box)`
@@ -81,7 +85,7 @@ const StyledBox = styled(Box)`
   align-items: center;
   justify-content:center;
   gap: 16px;
-  padding: 24px;
+  padding: 24px 24px 0px 24px;
 `;
 
 const StyledTitle = styled.h1`
@@ -99,7 +103,6 @@ const StyledText = styled.p`
   /* color: #550080; */
   color: #122C4F ;
   margin-top: 30px;
-  margin-bottom: 30px; 
   letter-spacing: normal;
   line-height: normal;
   text-align: center;
