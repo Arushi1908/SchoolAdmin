@@ -7,19 +7,19 @@ const About = () => {
   return (
     <>
       <StyledContainer sx={{ width:'100%'}}>
-      <Grid container spacing={2} sx={{ margin: 0, pt: 0 }}>
-      <Grid item xs={12} md={6} sx={{ mt: '-6%' }}>
+      <Grid container spacing={2} sx={{ alignItems: 'center', margin: 0, pt: 0 }}>
+      <Grid item xs={12} md={6} sx={{ mt: '-10%' }}>
           <img
             src={Students}
             alt="students"
-            style={{ width: "100%", height: "75%" }}
+            style={{ width: "100%", height: "75vh" }}
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
           <StyledPaper elevation={3}>
-            <StyledTitle style={{ marginTop: '-6.5%', fontFamily:" 'HostGrotesk' " }}>
-              ABOUT US
+            <StyledTitle style={{ marginTop: '-25.5%', fontFamily:" 'HostGrotesk' " }}>
+              <span>ABOUT US</span>
             </StyledTitle>
             <StyledText>
             Welcome to Eudora, a modern, intuitive, and powerful school management system designed to streamline administrative tasks, 
@@ -49,10 +49,11 @@ export default About;
 const StyledContainer = styled.div`
   display: flex;
   background-color:rgb(255,255,255)) ;
-  padding: 1% 2% 0 2%;
+  padding: 1% 2% 0% 2%;
   flexDirection: 'column';
   align-items: center;
    justify-content: center;
+   
 `;
 
 const StyledTitle = styled.h1`
@@ -62,8 +63,8 @@ const StyledTitle = styled.h1`
   font-weight: bold;
   letter-spacing: normal;
   line-height: normal;
-  text-align: right;
-  padding-right: 25%;
+  text-align: center;
+  // padding-right: 25%;
 `;
 
 const StyledText = styled.p`
@@ -72,10 +73,12 @@ const StyledText = styled.p`
   margin-top: 2%;
   letter-spacing: normal;
   line-height: normal;
-  text-align: center;
+  text-align: justify;
   padding-right: 5%;
+  
 `;
 
 const StyledPaper = styled.div`
-  padding: 0 2% 2% 2%;
+  margin: 0 auto ;
+  text-align: center;
 `;

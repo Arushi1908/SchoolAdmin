@@ -12,11 +12,22 @@ import { getAllSclasses } from '../../redux/sclassRelated/sclassHandle';
 import { getAllStudents } from '../../redux/studentRelated/studentHandle';
 import { getAllTeachers } from '../../redux/teacherRelated/teacherHandle';
 
+import HomeIcon from "@mui/icons-material/Home";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
+import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
+import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
+import ReportIcon from '@mui/icons-material/Report';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+
 import SchoolIcon from '@mui/icons-material/School';
 import ClassIcon from '@mui/icons-material/Class';
 import GroupsIcon from '@mui/icons-material/Groups';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import bgimg from '../../assets/illus1.jpg';
+import { Link } from 'react-router-dom';
 
 
 const AdminHomePage = () => {
@@ -41,49 +52,93 @@ const AdminHomePage = () => {
 
     return (
         <>
-            <Container maxWidth="100%" sx={{ pt: 10, pb: 4, height:'100vh', backgroundImage: `url(${bgimg})`, backgroundSize:'contain', }}>
-                <Grid container spacing={3} sx={{ px: 10 }}>
+            <Container maxWidth="100%" sx={{ pt: 5, height:'90vh', backgroundImage: `url(${bgimg})`, backgroundSize:'contain', }}>
+                <Grid container spacing={3} sx={{ px: 12 }}>
                     <Grid item xs={12} md={3} lg={3}>
+                         <Link to="/" style={{ textDecoration: 'none' }}>
                         <StyledPaper sx={{bgcolor:' #122C4F', color:' #9cb6d1'}}>
-                            <SchoolIcon sx={{fontSize:70, marginBottom:'10%'}}/>
+                            <HomeIcon sx={{fontSize:80, marginBottom:'10%'}}/>
                             {/* <img src={SchoolIcon} style={{marginTop:'2rem'}}  alt="Students" /> */}
                             <Title>
-                                TOTAL STUDENTS
+                                HOME
                             </Title>
-                            <Data start={0} end={numberOfStudents} duration={2.5}  />
+                            {/* <Data start={0} end={numberOfStudents} duration={2.5}  /> */}
                         </StyledPaper>
+                        </Link>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
+                        <Link to="/Admin/classes">
                         <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
-                            <ClassIcon sx={{fontSize:70, marginBottom:'10%'}}/>
+                            <ClassOutlinedIcon sx={{fontSize:80, marginBottom:'10%', }}/>
                             <Title>
-                                TOTAL CLASSES
+                                CLASSES
                             </Title>
-                            <Data start={0} end={numberOfClasses} duration={5} />
+                            {/* <Data start={0} end={numberOfClasses} duration={5} /> */}
                         </StyledPaper>
+                        </Link>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
+                        <Link to='/Admin/subjects'>
                         <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
-                            <GroupsIcon sx={{fontSize:70, marginBottom:'10%'}}/>
+                            <AssignmentIcon sx={{fontSize:80, marginBottom:'10%'}}/>
                             <Title>
-                                TOTAL TEACHERS
+                                SUBJECTS
                             </Title>
-                            <Data start={0} end={numberOfTeachers} duration={2.5} />
+                            {/* <Data start={0} end={numberOfTeachers} duration={2.5} /> */}
                         </StyledPaper>
+                        </Link>
                     </Grid>
                     <Grid item xs={12} md={3} lg={3}>
+                    <Link to='/Admin/teachers'>
                         <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
-                            <AccountBalanceIcon sx={{fontSize:70, marginBottom:'10%'}}/>
+                            <SupervisorAccountOutlinedIcon sx={{fontSize:80, marginBottom:'10%'}}/>
                             <Title>
-                                FEES COLLECTION
+                                TEACHERS
                             </Title>
-                            <Data start={0} end={2300000} duration={2.5} prefix="₹" />                        </StyledPaper>
+                            {/* <Data start={0} end={2300000} duration={2.5} prefix="₹" />                         */}
+                            </StyledPaper>
+                            </Link>
                     </Grid>
-                    <Grid item xs={12} md={12} lg={12} >
+                    <Grid item xs={12} md={3} lg={3} sx={{ml: 18, mt:5}}>
+                         <Link to="/Admin/students" style={{ textDecoration: 'none' }}>
+                        <StyledPaper sx={{bgcolor:' #122C4F', color:' #9cb6d1'}}>
+                            <PersonOutlineIcon sx={{fontSize:80, marginBottom:'10%'}}/>
+                            {/* <img src={SchoolIcon} style={{marginTop:'2rem'}}  alt="Students" /> */}
+                            <Title>
+                                STUDENTS
+                            </Title>
+                            
+                        </StyledPaper>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12} md={3} lg={3} sx={{mt:5}}>
+                        <Link to="/Admin/notices">
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                            <ClassOutlinedIcon sx={{fontSize:80, marginBottom:'10%', }}/>
+                            <Title>
+                                NOTICES
+                            </Title>
+                            
+                        </StyledPaper>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12} md={3} lg={3} sx={{mt:5}}>
+                        <Link to='/Admin/complains'>
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                            <GroupsIcon sx={{fontSize:80, marginBottom:'10%'}}/>
+                            <Title>
+                                Complains
+                            </Title>
+                           
+                        </StyledPaper>
+                        </Link>
+                    </Grid>
+                    
+                    {/* <Grid item xs={12} md={12} lg={12} >
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px', bgcolor: ' #122C4F', color: ' #9cb6d1' }}>
                             <SeeNotice />
                         </Paper>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Container>
         </>
@@ -95,7 +150,8 @@ const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 280px;
+  height: 220px;
+  width: 220px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -104,7 +160,7 @@ const StyledPaper = styled(Paper)`
 `;
 
 const Title = styled.p`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 `;
 
 const Data = styled(CountUp)`

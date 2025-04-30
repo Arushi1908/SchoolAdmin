@@ -52,11 +52,11 @@ const LINKS = [
   },
   {
     text: "About Us",
-    href: "/About",
+    href: "/about",
   },
   {
     text: "Contact Us",
-    href: "/contactUs",
+    href: "/contact",
   },
 ];
 

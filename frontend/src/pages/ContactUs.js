@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ContactUs from './ContactUs';
+// import ContactUs from './ContactUs';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -69,14 +69,14 @@ const ContactUs = () => {
             onChange={handleChange}
             style={styles.input}
           />
-          <input
+          {/* <input
             type="text"
             name="subject"
             placeholder="Subject"
             value={formData.subject}
             onChange={handleChange}
             style={styles.input}
-          />
+          /> */}
           <textarea
             name="message"
             placeholder="Your Message"
