@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import ContactUs from './ContactUs';
+import '../styles/font.css'; // Import the font styles
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -19,119 +19,164 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       setError('All fields are required.');
       return;
     }
 
     setError('');
-
-    // Simulate POST request or connect to backend here
-    try {
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
-
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
-    }
+    setSubmitted(true);
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
+  const backgroundImageUrl = '/cont.jpg'; // Check the path to your image
+
   return (
-    <div style={styles.container}>
-      <h2>Contact Us</h2>
-      {submitted ? (
-        <p style={styles.success}>Thank you for contacting us! We will get back to you soon.</p>
-      ) : (
-        <form onSubmit={handleSubmit} style={styles.form}>
-          {error && <p style={styles.error}>{error}</p>}
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            style={styles.input}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            style={styles.input}
-          />
-          {/* <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            style={styles.input}
-          /> */}
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            style={styles.textarea}
-          />
-          <button type="submit" style={styles.button}>Send Message</button>
-        </form>
-      )}
+    <div
+      style={{
+        ...styles.page,
+        backgroundImage: `url(${backgroundImageUrl})`, // Applying the background image
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      <div style={styles.overlay}>
+        <div style={styles.container}>
+          <h2 style={styles.heading}>Contact Us</h2>
+          {submitted ? (
+            <p style={styles.success}>
+              Thank you for contacting us! We will get back to you soon.
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit} style={styles.form}>
+              {error && <p style={styles.error}>{error}</p>}
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                style={styles.input}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                style={styles.input}
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                style={styles.input}
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                style={styles.textarea}
+              />
+              <button type="submit" style={styles.button}>Send Message</button>
+            </form>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
-// Basic inline styles
 const styles = {
-  container: {
+  page: {
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'HostGrotesk, sans-serif', // Use custom font
+  },
+  overlay: {
+    backgroundColor: 'rgba(255, 255, 255, 0.85)',
+    padding: '40px',
+    borderRadius: '12px',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
     maxWidth: '600px',
-    margin: '40px auto',
-    padding: '20px',
-    background: '#f9f9f9',
-    borderRadius: '8px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+    width: '90%'
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  heading: {
+    textAlign: 'center',
+    color: '#4a7ca8',
+    marginBottom: '20px',
+    fontSize: '28px',
+    fontFamily: 'HostGrotesk, sans-serif'
   },
   form: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '12px'
+    gap: '14px'
   },
   input: {
-    padding: '10px',
-    borderRadius: '4px',
-    border: '1px solid #ccc'
+    padding: '12px',
+    borderRadius: '6px',
+    border: '1px solid #ccc',
+    fontSize: '16px',
+    fontFamily: 'HostGrotesk, sans-serif',
+    outline: 'none',
+    color: '#122C4F',
+    '&:focus': {
+      borderColor: '#4a7ca8'
+    }
   },
   textarea: {
-    padding: '10px',
-    height: '100px',
-    borderRadius: '4px',
-    border: '1px solid #ccc'
+    padding: '12px',
+    height: '120px',
+    borderRadius: '6px',
+    border: '1px solid #ccc',
+    fontSize: '16px',
+    resize: 'vertical',
+    fontFamily: 'HostGrotesk, sans-serif',
+    outline: 'none',
+    color: '#122C4F',
+    '&:focus': {
+      borderColor: '#4a7ca8'
+    }
   },
   button: {
-    padding: '12px',
-    backgroundColor: '#007bff',
+    padding: '14px',
+    backgroundColor: '#4a7ca8',
     color: '#fff',
+    fontSize: '16px',
     border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer'
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontFamily: 'HostGrotesk, sans-serif'
   },
   error: {
-    color: 'red',
-    fontSize: '14px'
+    color: '#d32f2f',
+    fontSize: '14px',
+    backgroundColor: '#fdecea',
+    padding: '10px',
+    borderRadius: '4px',
+    fontFamily: 'HostGrotesk, sans-serif'
   },
   success: {
-    color: 'green',
-    fontSize: '16px'
+    color: '#388e3c',
+    fontSize: '16px',
+    backgroundColor: '#e8f5e9',
+    padding: '10px',
+    borderRadius: '4px',
+    fontFamily: 'HostGrotesk, sans-serif'
   }
 };
 
