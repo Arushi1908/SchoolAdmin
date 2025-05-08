@@ -26,7 +26,7 @@ const Navbar = () => {
         justifyContent: "center",
       }}
     >
-      <Container maxWidth="lg">
+      <Container sx={{paddingLeft:0}} maxWidth="lg">
         <Toolbar
           disableGutters
           sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
@@ -34,7 +34,7 @@ const Navbar = () => {
           <Logo />
           <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 2 }}>
             <Links />
-            <CTAs />
+            {/* <CTAs /> */}
           </Box>
           <Box sx={{ display: { xs: "flex", lg: "none" }, alignItems: "center" }}>
             <MobileMenu />
@@ -79,20 +79,20 @@ const Links = () => (
   </>
 );
 
-const CTAs = () => (
-  <Button
-    variant="contained"
-    sx={{
-      bgcolor: "#122C4F",
-      color: "#abd9f1",
-      "&:hover": {
-        bgcolor: "#0f223d",
-      },
-    }}
-  >
-    Schedule a Demo
-  </Button>
-);
+// const CTAs = () => (
+//   <Button
+//     variant="contained"
+//     sx={{
+//       bgcolor: "#122C4F",
+//       color: "#abd9f1",
+//       "&:hover": {
+//         bgcolor: "#0f223d",
+//       },
+//     }}
+//   >
+//     Schedule a Demo
+//   </Button>
+// );
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
@@ -126,7 +126,7 @@ const MobileMenu = () => {
           </List>
           <Divider />
           <Box p={2}>
-            <CTAs />
+            {/* <CTAs /> */}
           </Box>
         </Box>
       </Drawer>

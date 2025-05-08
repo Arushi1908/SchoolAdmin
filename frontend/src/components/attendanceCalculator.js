@@ -6,11 +6,12 @@ export const calculateSubjectAttendancePercentage = (presentCount, totalSessions
     return percentage.toFixed(2); // Limit to two decimal places
 };
 
-
 export const groupAttendanceBySubject = (subjectAttendance) => {
     const attendanceBySubject = {};
 
     subjectAttendance.forEach((attendance) => {
+        if (!attendance.subName) return; // Skip if subName is undefined
+
         const subName = attendance.subName.subName;
         const sessions = attendance.subName.sessions;
         const subId = attendance.subName._id;
@@ -35,7 +36,7 @@ export const groupAttendanceBySubject = (subjectAttendance) => {
         });
     });
     return attendanceBySubject;
-}
+};
 
 export const calculateOverallAttendancePercentage = (subjectAttendance) => {
     let totalSessionsSum = 0;
@@ -43,6 +44,8 @@ export const calculateOverallAttendancePercentage = (subjectAttendance) => {
     const uniqueSubIds = [];
 
     subjectAttendance.forEach((attendance) => {
+        if (!attendance.subName) return; // Skip if subName is undefined
+
         const subId = attendance.subName._id;
         if (!uniqueSubIds.includes(subId)) {
             const sessions = parseInt(attendance.subName.sessions);

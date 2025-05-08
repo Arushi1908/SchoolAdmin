@@ -101,5 +101,20 @@ const deleteSclasses = async (req, res) => {
     }
 }
 
+const getTeacherClasses = async (req, res) => {
+    try {
+        const teacher = await Teacher.findById(req.params.teacherID).populate("teachSclass");
 
-module.exports = { sclassCreate, sclassList, deleteSclass, deleteSclasses, getSclassDetail, getSclassStudents };
+        if (!teacher || !teacher.teachSclass) {
+            return res.status(404).json({ message: "No class assigned to this teacher" });
+        }
+
+        res.status(200).json([teacher.teachSclass]); // wrap in array for consistency
+    } catch (err) {
+        res.status(500).json({ message: "Failed to fetch teacher's class" });
+    }
+};
+
+
+
+module.exports = { sclassCreate, sclassList, deleteSclass, deleteSclasses, getSclassDetail, getSclassStudents, getTeacherClasses };

@@ -14,6 +14,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import ClassIcon from '@mui/icons-material/Class';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { Link } from 'react-router-dom';
 
 const TeacherHomePage = () => {
     const dispatch = useDispatch();
@@ -71,6 +72,19 @@ const TeacherHomePage = () => {
                             </Title>
                             <Data start={0} end={30} duration={4} suffix="hrs"/>                        </StyledPaper>
                     </Grid>
+
+                    <Grid item xs={12} md={3} lg={3} sx={{mt:5}}>
+                                            <Link to='/teacher/attendance'>
+                                            <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                                                <AccessTimeIcon sx={{fontSize:80, marginBottom:'10%'}}/>
+                                                <Title>
+                                                    Attendance
+                                                </Title>
+                                               
+                                            </StyledPaper>
+                                            </Link>
+                                        </Grid>
+
                     <Grid item xs={12}>
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px', bgcolor: ' #122C4F', color: ' #9cb6d1' }}>
                             <SeeNotice />

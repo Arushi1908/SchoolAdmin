@@ -165,8 +165,8 @@ const StyledPaper = styled(Paper)`
   padding:30px;
   text-align: center;
   cursor:pointer;
-  height: 35vh;
-  width: 15vw;
+  height: 45vh;
+  width: 18vw;
   border-radius: 15px !important;
 
   &:hover {

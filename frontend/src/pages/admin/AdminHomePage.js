@@ -133,6 +133,18 @@ const AdminHomePage = () => {
                         </StyledPaper>
                         </Link>
                     </Grid>
+
+                    <Grid item xs={12} md={3} lg={3} sx={{mt:5}}>
+                        <Link to='/Admin/attendance'>
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                            <GroupsIcon sx={{fontSize:80, marginBottom:'10%'}}/>
+                            <Title>
+                                Attendance
+                            </Title>
+                           
+                        </StyledPaper>
+                        </Link>
+                    </Grid>
                     
                     {/* <Grid item xs={12} md={12} lg={12} >
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px', bgcolor: ' #122C4F', color: ' #9cb6d1' }}>

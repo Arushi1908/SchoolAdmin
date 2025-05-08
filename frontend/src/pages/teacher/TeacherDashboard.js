@@ -25,6 +25,7 @@ import TeacherViewStudent from './TeacherViewStudent';
 import StudentExamMarks from '../admin/studentRelated/StudentExamMarks';
 
 import bgimg from '../../assets/illus1.jpg'
+import Attendance from './newAttd';
 
 const TeacherDashboard = () => {
     const [open, setOpen] = useState(true);
@@ -83,17 +84,19 @@ const TeacherDashboard = () => {
                 <Box component="main" sx={styles.boxStyled}>
                     <Toolbar />
                     <Routes>
-                        <Route path="/" element={<TeacherHomePage />} />
+                        <Route path="/" element={<TeacherProfile />} />
                         <Route path='*' element={<Navigate to="/" />} />
-                        <Route path="/Teacher/dashboard" element={<TeacherHomePage />} />
+                        <Route path="/Teacher/dashboard" element={<TeacherProfile />} />
                         <Route path="/Teacher/profile" element={<TeacherProfile />} />
 
                         <Route path="/Teacher/complain" element={<TeacherComplain />} />
 
-                        <Route path="/Teacher/class" element={<TeacherClassDetails />} />
+                        <Route path="/Teacher/class" element={<Attendance />} />
                         <Route path="/Teacher/class/student/:id" element={<TeacherViewStudent />} />
 
-                        <Route path="/Teacher/class/student/attendance/:studentID/:subjectID" element={<StudentAttendance situation="Subject" />} />
+                        <Route path="/teacher/attendance" element={<Attendance/>}/>
+
+                        <Route path="/Teacher/class/student/attendance/:studentID/:subjectID" element={<Attendance situation="Subject" />} />
                         <Route path="/Teacher/class/student/marks/:studentID/:subjectID" element={<StudentExamMarks situation="Subject" />} />
 
                         <Route path="/logout" element={<Logout />} />

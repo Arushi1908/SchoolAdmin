@@ -7,6 +7,7 @@ import {
     postDone,
     doneSuccess
 } from './teacherSlice';
+import { getFailedTwo, setSclasses } from '../sclassRelated/sclassSlice';
 
 export const getAllTeachers = (id) => async (dispatch) => {
     dispatch(getRequest());
@@ -48,3 +49,21 @@ export const updateTeachSubject = (teacherId, teachSubject) => async (dispatch) 
         dispatch(getError(error));
     }
 }
+
+export const getTeacherSclasses = (teacherID) => async (dispatch) => {
+    dispatch(getRequest());
+  
+    try {
+      const result = await axios.get(`http://localhost:5000/TeacherClassList/${teacherID}`);
+      console.log("API Response:", result.data);
+
+      if (result.data.message) {
+        dispatch(getFailedTwo(result.data.message));
+      } else {
+        dispatch(setSclasses(result.data));
+      }
+    } catch (error) {
+      dispatch(getError(error));
+    }
+  };
+  

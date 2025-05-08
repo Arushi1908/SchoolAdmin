@@ -3,7 +3,7 @@ import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { BottomNavigation, BottomNavigationAction, Box, Button, Collapse, Paper, Table, TableBody, TableHead, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserDetails } from '../../redux/userRelated/userHandle';
-import { calculateOverallAttendancePercentage, calculateSubjectAttendancePercentage, groupAttendanceBySubject } from '../../components/attendanceCalculator';
+import { calculateOverallAttendancePercentage } from '../../components/attendanceCalculator';  // Updated to calculate day-wise attendance percentage
 
 import CustomBarChart from '../../components/CustomBarChart'
 
@@ -12,6 +12,7 @@ import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import { StyledTableCell, StyledTableRow } from '../../components/styles';
+import { calculateDayWiseAttendancePercentage } from '../../components/newCalculator';
 
 const ViewStdAttendance = () => {
     const dispatch = useDispatch();
@@ -34,28 +35,17 @@ const ViewStdAttendance = () => {
     if (response) { console.log(response) }
     else if (error) { console.log(error) }
 
-    const [subjectAttendance, setSubjectAttendance] = useState([]);
+    const [attendanceData, setAttendanceData] = useState([]);
     const [selectedSection, setSelectedSection] = useState('table');
 
     useEffect(() => {
         if (userDetails) {
-            setSubjectAttendance(userDetails.attendance || []);
+            setAttendanceData(userDetails.attendance || []);  // Assuming attendance is now day-wise
         }
     }, [userDetails])
 
-    const attendanceBySubject = groupAttendanceBySubject(subjectAttendance)
-
-    const overallAttendancePercentage = calculateOverallAttendancePercentage(subjectAttendance);
-
-    const subjectData = Object.entries(attendanceBySubject).map(([subName, { subCode, present, sessions }]) => {
-        const subjectAttendancePercentage = calculateSubjectAttendancePercentage(present, sessions);
-        return {
-            subject: subName,
-            attendancePercentage: subjectAttendancePercentage,
-            totalClasses: sessions,
-            attendedClasses: present
-        };
-    });
+    // Calculate overall attendance based on day-wise data (Present vs Absent)
+    const overallAttendancePercentage = calculateDayWiseAttendancePercentage(attendanceData);
 
     const handleSectionChange = (event, newSection) => {
         setSelectedSection(newSection);
@@ -70,92 +60,53 @@ const ViewStdAttendance = () => {
                 <Table>
                     <TableHead>
                         <StyledTableRow>
-                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor= ' white' sx={{fontSize:'100%'}}>Subject</StyledTableCell>
-                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor= ' white' sx={{fontSize:'100%'}}>Present</StyledTableCell>
-                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor= ' white' sx={{fontSize:'100%'}}>Total Sessions</StyledTableCell>
-                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor= ' white' sx={{fontSize:'100%'}}>Attendance Percentage</StyledTableCell>
-                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor= ' white' sx={{fontSize:'100%'}} align="center">Actions</StyledTableCell>
+                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor=' white' sx={{ fontSize: '100%' }}>Date</StyledTableCell>
+                            <StyledTableCell customHeadBg=' #122C4F' customHeadColor=' white' sx={{ fontSize: '100%' }}>Status</StyledTableCell>
+                           
                         </StyledTableRow>
                     </TableHead>
-                    {Object.entries(attendanceBySubject).map(([subName, { present, allData, subId, sessions }], index) => {
-                        const subjectAttendancePercentage = calculateSubjectAttendancePercentage(present, sessions);
-
-                        return (
-                            <TableBody key={index}>
-                                <StyledTableRow>
-                                    <StyledTableCell>{subName}</StyledTableCell>
-                                    <StyledTableCell>{present}</StyledTableCell>
-                                    <StyledTableCell>{sessions}</StyledTableCell>
-                                    <StyledTableCell>{subjectAttendancePercentage}%</StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        <Button variant="contained"
-                                            onClick={() => handleOpen(subId)}>
-                                            {openStates[subId] ? <KeyboardArrowUp /> : <KeyboardArrowDown />}Details
-                                        </Button>
-                                    </StyledTableCell>
+                    <TableBody>
+                        {attendanceData.map((data, index) => {
+                            const date = new Date(data.date);
+                            const dateString = date.toString() !== "Invalid Date" ? date.toISOString().substring(0, 10) : "Invalid Date";
+                            return (
+                                <StyledTableRow key={index}>
+                                    <StyledTableCell>{dateString}</StyledTableCell>
+                                    <StyledTableCell>{data.status}</StyledTableCell>
+                                    
                                 </StyledTableRow>
-                                <StyledTableRow>
-                                    <StyledTableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openStates[subId]} timeout="auto" unmountOnExit>
-                                            <Box sx={{ margin: 1 }}>
-                                                <Typography variant="h6" gutterBottom component="div">
-                                                    Attendance Details
-                                                </Typography>
-                                                <Table size="small" aria-label="purchases">
-                                                    <TableHead>
-                                                        <StyledTableRow>
-                                                            <StyledTableCell>Date</StyledTableCell>
-                                                            <StyledTableCell align="right">Status</StyledTableCell>
-                                                        </StyledTableRow>
-                                                    </TableHead>
-                                                    <TableBody>
-                                                        {allData.map((data, index) => {
-                                                            const date = new Date(data.date);
-                                                            const dateString = date.toString() !== "Invalid Date" ? date.toISOString().substring(0, 10) : "Invalid Date";
-                                                            return (
-                                                                <StyledTableRow key={index}>
-                                                                    <StyledTableCell component="th" scope="row">
-                                                                        {dateString}
-                                                                    </StyledTableCell>
-                                                                    <StyledTableCell align="right">{data.status}</StyledTableCell>
-                                                                </StyledTableRow>
-                                                            )
-                                                        })}
-                                                    </TableBody>
-                                                </Table>
-                                            </Box>
-                                        </Collapse>
-                                    </StyledTableCell>
-                                </StyledTableRow>
-                            </TableBody>
-                        )
-                    }
-                    )}
+                            );
+                        })}
+                    </TableBody>
                 </Table>
                 <div>
                     Overall Attendance Percentage: {overallAttendancePercentage.toFixed(2)}%
                 </div>
             </>
-        )
+        );
     }
 
     const renderChartSection = () => {
+        // Prepare the chart data
+        const chartData = attendanceData.map((data) => ({
+            name: data.date,
+            value: data.status === 'Present' ? 100 : 0,  // 100% if present, 0% if absent
+        }));
+
         return (
             <>
-                <CustomBarChart chartData={subjectData} dataKey="attendancePercentage" />
+                <CustomBarChart chartData={chartData} dataKey="value" />
             </>
-        )
+        );
     };
 
     return (
         <>
-            {loading
-                ? (
-                    <div>Loading...</div>
-                )
-                :
+            {loading ? (
+                <div>Loading...</div>
+            ) : (
                 <div>
-                    {subjectAttendance && Array.isArray(subjectAttendance) && subjectAttendance.length > 0 ?
+                    {attendanceData && Array.isArray(attendanceData) && attendanceData.length > 0 ? (
                         <>
                             {selectedSection === 'table' && renderTableSection()}
                             {selectedSection === 'chart' && renderChartSection()}
@@ -175,17 +126,15 @@ const ViewStdAttendance = () => {
                                 </BottomNavigation>
                             </Paper>
                         </>
-                        :
-                        <>
-                            <Typography variant="h6" gutterBottom component="div">
-                                Currently You Have No Attendance Details
-                            </Typography>
-                        </>
-                    }
+                    ) : (
+                        <Typography variant="h6" gutterBottom component="div">
+                            Currently You Have No Attendance Details
+                        </Typography>
+                    )}
                 </div>
-            }
+            )}
         </>
-    )
+    );
 }
 
-export default ViewStdAttendance
+export default ViewStdAttendance;
