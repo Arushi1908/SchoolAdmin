@@ -32,7 +32,7 @@ const Navbar = () => {
           sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
         >
           <Logo />
-          <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 2 }}>
+          <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 2, mr:'-5%' }}>
             <Links />
             {/* <CTAs /> */}
           </Box>
@@ -46,7 +46,7 @@ const Navbar = () => {
 };
 
 const Logo = () => (
-  <Box sx={{ display: "flex", alignItems: "center", color: "#122C4F", fontWeight: 700, fontSize: "1.2rem" }}>
+  <Box sx={{ display: "flex", alignItems: "center", color: "#122C4F", ml:'-7%' }}>
     EDVORA
   </Box>
 );

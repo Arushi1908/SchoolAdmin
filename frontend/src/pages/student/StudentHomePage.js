@@ -12,6 +12,7 @@ import CountUp from 'react-countup';
 import { getSubjectList } from '../../redux/sclassRelated/sclassHandle';
 import DescriptionIcon from '@mui/icons-material/Description';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import { calculateDayWiseAttendancePercentage } from '../../components/newCalculator';
 
 const StudentHomePage = () => {
     const dispatch = useDispatch();
@@ -22,6 +23,14 @@ const StudentHomePage = () => {
     const [subjectAttendance, setSubjectAttendance] = useState([]);
 
     const classID = currentUser.sclassName._id
+
+    const [attendanceData, setAttendanceData] = useState([]);
+
+    useEffect(() => {
+            if (userDetails) {
+                setAttendanceData(userDetails.attendance || []);  // Assuming attendance is now day-wise
+            }
+        }, [userDetails])
 
     useEffect(() => {
         dispatch(getUserDetails(currentUser._id, "Student"));
@@ -36,7 +45,8 @@ const StudentHomePage = () => {
         }
     }, [userDetails])
 
-    const overallAttendancePercentage = calculateOverallAttendancePercentage(subjectAttendance);
+    const overallAttendancePercentage = calculateDayWiseAttendancePercentage(attendanceData);
+
     const overallAbsentPercentage = 100 - overallAttendancePercentage;
 
     const chartData = [
@@ -65,7 +75,16 @@ const StudentHomePage = () => {
                             <Data start={0} end={15} duration={4} />
                         </StyledPaper>
                     </Grid>
-                    <Grid item xs={12} md={4} lg={3}>
+                    <Grid item xs={12} md={3} lg={3}>
+                        <StyledPaper sx={{ bgcolor:' #122C4F', color: ' #9cb6d1'}}>
+                            <DescriptionIcon sx={{fontSize:70, marginBottom:'10%'}} />
+                            <Title>
+                                ATTENDANCE
+                            </Title>
+                            <Data start={0} end={overallAttendancePercentage} duration={4} />
+                        </StyledPaper>
+                    </Grid>
+                    {/* <Grid item xs={12} md={4} lg={3}>
                         <ChartContainer>
                             {
                                 response ?
@@ -92,7 +111,7 @@ const StudentHomePage = () => {
                                     </>
                             }
                         </ChartContainer>
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12}>
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', borderRadius:'25px', bgcolor: ' #122C4F', color: ' #9cb6d1' }}>
                             <SeeNotice />

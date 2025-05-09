@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/font.css'; // Import the font styles
+import bgpic from "../assets/download2.jpg"
+import { Typography } from '@mui/material';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -38,14 +40,20 @@ const ContactUs = () => {
     <div
       style={{
         ...styles.page,
-        backgroundImage: `url(${backgroundImageUrl})`, // Applying the background image
+         backgroundImage: `url(${bgpic})`, // Applying the background image
         backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        height: '100vh',
+        width: '100%',
+        backgroundPositionX: 'calc(50% - 280px)', // Move image ~70px to the left
+        backgroundPositionY: 'center',
+       // backgroundPosition: 'center'
       }}
     >
       <div style={styles.overlay}>
         <div style={styles.container}>
-          <h2 style={styles.heading}>Contact Us</h2>
+          <Typography variant="h4" sx={{ mb: 2, color: " #9cb6d1" }}>
+                             CONTACT US
+                        </Typography>
           {submitted ? (
             <p style={styles.success}>
               Thank you for contacting us! We will get back to you soon.
@@ -69,14 +77,7 @@ const ContactUs = () => {
                 onChange={handleChange}
                 style={styles.input}
               />
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                style={styles.input}
-              />
+              
               <textarea
                 name="message"
                 placeholder="Your Message"

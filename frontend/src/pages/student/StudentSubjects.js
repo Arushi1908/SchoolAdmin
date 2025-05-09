@@ -33,11 +33,12 @@ const StudentSubjects = () => {
         }
     }, [userDetails])
 
-    useEffect(() => {
-        if (subjectMarks === []) {
-            dispatch(getSubjectList(currentUser.sclassName._id, "ClassSubjects"));
-        }
-    }, [subjectMarks, dispatch, currentUser.sclassName._id]);
+   useEffect(() => {
+    if (subjectMarks.length === 0 && subjectsList.length === 0) {
+        dispatch(getSubjectList(currentUser.sclassName._id, "ClassSubjects"));
+    }
+}, [subjectMarks, subjectsList, dispatch, currentUser.sclassName._id]);
+
 
     const handleSectionChange = (event, newSection) => {
         setSelectedSection(newSection);
@@ -98,7 +99,7 @@ const StudentSubjects = () => {
                     Class Details
                 </Typography>
                 <Typography variant="h5" gutterBottom>
-                    You are currently in Class {sclassDetails && sclassDetails.sclassName}
+                    You are currently in Class {userDetails?.sclassName?.sclassName || "N/A"}
                 </Typography>
                 <Typography variant="h6" gutterBottom>
                     And these are the subjects:
